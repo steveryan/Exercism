@@ -1,22 +1,19 @@
 class HighScores
+  attr_accessor :scores
   def initialize(score)
-    @scores = score
+    self.scores = score
   end
   
-  def scores
-   @scores
-  end
-
   def personal_top_three
-    @scores.sort.reverse[0..2]
+    self.scores.max(3)
   end
   
   def latest
-    @scores.last
+    self.scores.last
   end
 
   def personal_best
-    @scores.max
+    self.scores.max
   end
 end
 
