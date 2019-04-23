@@ -1,19 +1,19 @@
 class HighScores
-  attr_accessor :scores
+  attr_reader :scores
   def initialize(score)
-    self.scores = score
+    @scores = score
   end
   
   def personal_top_three
-    self.scores.max(3)
+    scores.max(3)
   end
   
   def latest
-    self.scores.last
+    scores.last
   end
 
   def personal_best
-    self.scores.max
+    scores.max
   end
 end
 
