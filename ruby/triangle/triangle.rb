@@ -16,16 +16,29 @@ class Triangle
     end
   end
 
+  def has_3_equal_sides
+    @sides_array.uniq.length == 1 ? true:false
+  end
+
+  def has_at_least_2_equal_sides
+    @sides_array.uniq.length <= 2 ? true:false
+  end
+
+  def has_no_equal_sides
+    @sides_array.uniq.length == 3 ? true:false
+  end
+
+
   def equilateral?
-    if is_triangle? == true && @sides_array.uniq.length == 1 then true else false end
+    is_triangle? && has_3_equal_sides
   end
 
   def isosceles?
-    if is_triangle? == true && @sides_array.uniq.length <= 2 then true else false end
+    is_triangle? && has_at_least_2_equal_sides
   end
 
   def scalene?
-    if is_triangle? == true && @sides_array.uniq.length == 3 then true else false end
+    is_triangle? && has_no_equal_sides
   end
 
 end
