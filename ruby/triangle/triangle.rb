@@ -17,15 +17,15 @@ class Triangle
   end
 
   def equilateral?
-    if is_triangle? == true && @side1 == @side2 && @side2 == @side3 then true else false end
+    if is_triangle? == true && @sides_array.uniq.length == 1 then true else false end
   end
 
   def isosceles?
-    if is_triangle? == true && (@side1 == @side2 || @side1 == @side3 || @side2 == @side3) then true else false end
+    if is_triangle? == true && @sides_array.uniq.length <= 2 then true else false end
   end
 
   def scalene?
-    if is_triangle? == true && @side1 != @side2 && @side1 != @side3 && @side2 != @side3 then true else false end
+    if is_triangle? == true && @sides_array.uniq.length == 3 then true else false end
   end
 
 end
