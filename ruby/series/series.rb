@@ -1,4 +1,3 @@
-require "pry"
 class Series
   attr_reader :characters, :length
   def initialize(string)
@@ -24,5 +23,3 @@ class Series
     end
   end
 end
-
-binding.pry
