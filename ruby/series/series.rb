@@ -2,20 +2,19 @@ require "pry"
 class Series
   attr_reader :characters, :length
   def initialize(string)
-    @characters = string
-    @length = string.length
+    @characters = string.to_s.chars
+    @length = @characters.length
   end
 
   def slices(number)
     checklength(number)
     response = []
-    i = 0
-    while i<(self.length)
+    self.characters.each_with_index do |e, i|
       if i+number<=length
-        response << self.characters.slice(i,number)
+        response << self.characters.slice(i,number).join
       end
-      i+=1
     end
+    i = 0
     response
   end
 
@@ -25,3 +24,5 @@ class Series
     end
   end
 end
+
+binding.pry
