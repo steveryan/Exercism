@@ -8,12 +8,9 @@ class Series
   def slices(number)
     checklength(number)
     response = []
-    self.characters.each_with_index do |e, i|
-      if i+number<=length
-        response << self.characters.slice(i,number).join
-      end
+    @characters.each_cons(number) do |number|
+      response << number.join
     end
-    i = 0
     response
   end
 
