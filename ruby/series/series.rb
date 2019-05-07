@@ -6,17 +6,7 @@ class Series
   end
 
   def slices(number)
-    checklength(number)
-    response = []
-    @characters.each_cons(number) do |number|
-      response << number.join
-    end
-    response
-  end
-
-  def checklength(number)
-    if number > self.length
-      raise ArgumentError
-    end
+    raise ArgumentError if number > self.length
+    response = @characters.each_cons(number).map{ |number| number.join}
   end
 end
