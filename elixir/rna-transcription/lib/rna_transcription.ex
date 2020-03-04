@@ -1,4 +1,13 @@
 defmodule RnaTranscription do
+  def translate(char) do
+    case char do
+      ?C -> ?G
+      ?G -> ?C
+      ?T -> ?A
+      ?A -> ?U
+    end
+  end
+
   @doc """
   Transcribes a character list representing DNA nucleotides to RNA
 
@@ -8,19 +17,8 @@ defmodule RnaTranscription do
   'UGAC'
   """
 
-  def translate(letter) do
-    char = [letter]
-
-    case char do
-      'C' -> List.first('G')
-      'G' -> List.first('C')
-      'T' -> List.first('A')
-      'A' -> List.first('U')
-    end
-  end
-
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    Enum.map(dna, fn x -> translate(x) end)
+    Enum.map(dna, &translate/1)
   end
 end
