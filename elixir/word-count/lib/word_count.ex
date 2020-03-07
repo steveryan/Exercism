@@ -6,19 +6,7 @@ defmodule WordCount do
   """
   @spec count(String.t()) :: map
   def count(sentence) do
-    clean_sentence =
-      String.replace(sentence, "_", " ")
-      |> String.replace(",", " ")
-      |> String.replace("!", " ")
-      |> String.replace("&", " ")
-      |> String.replace("@", " ")
-      |> String.replace("$", " ")
-      |> String.replace("%", " ")
-      |> String.replace("^", " ")
-      |> String.replace("&", " ")
-      |> String.replace(":", " ")
-
-    word_list = ~w(#{clean_sentence})
-    Enum.frequencies_by(word_list, &String.downcase/1)
+    clean_sentence = String.split(sentence, ["_",",","!","&","@","$","%","^","&",":", " "], trim: true)
+    Enum.frequencies_by(clean_sentence, &String.downcase/1)
   end
 end
